@@ -3,3 +3,7 @@ node_modules/
 # file milik sendiri, jangan ikut ter-commit (lihat assets/README.md)
 assets/*
 !assets/README.md
+# token & rahasia untuk backend mode api (lihat README → Sambungkan ke data asli)
+.env
+.env.*
+!.env.example

@@ -2,6 +2,8 @@
 
 Terima kasih sudah mau membantu.
 
+Dengan berkontribusi, kamu setuju mengikuti [Code of Conduct](CODE_OF_CONDUCT.md). Laporkan celah keamanan lewat [SECURITY.md](SECURITY.md), bukan issue publik.
+
 ## Menjalankan saat mengembangkan
 
 ```bash
