@@ -1,53 +1,57 @@
 # Virtual Office Mini Player
 
+[![GitHub stars](https://img.shields.io/github/stars/anditorx/virtual-office-mini-player?style=social)](https://github.com/anditorx/virtual-office-mini-player/stargazers)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-![Tanpa build step](https://img.shields.io/badge/build-tidak%20perlu-blue)
+![No build step](https://img.shields.io/badge/build-not%20needed-blue)
 ![three.js](https://img.shields.io/badge/three.js-0.160-black)
-[![PRs welcome](https://img.shields.io/badge/PR-welcome-orange)](CONTRIBUTING.md)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-orange)](CONTRIBUTING.md)
 
-Kantor virtual 3D yang jalan langsung di browser. Kamu keluar dari lift, jalan ke ruang IT, lalu mengecek dashboard di TV, mereview merge request di meja, memadamkan "api" incident dengan APAR, minum di galon, beli camilan di pantry pakai QRIS, atau JJ bareng rekan kerja. Data proyek (build, merge request, task, incident) tampil sebagai benda di dalam ruangan.
+A 3D virtual office that runs right in your browser. Step out of the elevator, walk to the IT room, check dashboards on the wall TVs, review merge requests at your desk, put out incident "fires" with an extinguisher, grab a drink at the water dispenser, buy snacks in the pantry with a QR payment, or dance with your coworkers. Project data (builds, merge requests, tasks, incidents) shows up as objects in the room.
 
-![Denah kantor: ruang IT, ruang meeting, ruang laktasi, pantry](docs/screenshots/overview.jpg)
+![Floor plan: IT room, meeting rooms, lactation room, pantry](docs/screenshots/overview.jpg)
 
-- **Tanpa build step.** Satu `index.html` + dua file konfigurasi. Tidak ada `npm install`.
-- **Langsung jalan dengan data dummy.** Tidak butuh server, token, atau akun apa pun.
-- **Bisa disambungkan ke data asli** lewat endpoint sendiri sesuai [docs/API.md](docs/API.md).
-- **Mudah diganti jadi kantormu:** nama perusahaan, logo, lantai, nilai perusahaan, dan rekan kerja ada di satu file, [`src/config.js`](src/config.js).
+- **No build step.** One `index.html` plus two config files. No `npm install`.
+- **Works out of the box with demo data.** No server, token, or account needed.
+- **Can connect to real data** through your own endpoints, following [docs/API.md](docs/API.md).
+- **Easy to make your own:** company name, logo, floor number, company values, and coworkers all live in one file, [`src/config.js`](src/config.js).
 
-> Semua nama orang, perusahaan, project, dan data di repo ini fiktif.
+> ⭐ **If you like this project, please [star it on GitHub](https://github.com/anditorx/virtual-office-mini-player).** It helps other people find it and keeps the project going.
 
-## Daftar isi
+All people, companies, projects, and data in this repo are fictional. The in-game text is currently in Bahasa Indonesia; an English translation is a welcome contribution ([there's a prompt for that](#ready-to-use-prompts)).
 
-- [Fitur](#fitur)
-- [Mulai cepat](#mulai-cepat)
-- [Cara pakai](#cara-pakai)
-- [Pakai dengan AI (vibe coding)](#pakai-dengan-ai-vibe-coding)
-- [Kontrol](#kontrol)
-- [Menyesuaikan](#menyesuaikan)
-- [Mode data](#mode-data)
-- [Struktur proyek](#struktur-proyek)
+## Contents
+
+- [Features](#features)
+- [Quick start](#quick-start)
+- [Ways to use it](#ways-to-use-it)
+- [Build with AI (vibe coding)](#build-with-ai-vibe-coding)
+- [Controls](#controls)
+- [Customization](#customization)
+- [Data modes](#data-modes)
+- [Project structure](#project-structure)
 - [FAQ](#faq)
-- [Berkontribusi](#berkontribusi)
-- [Lisensi](#lisensi)
+- [Contributing](#contributing)
+- [Credits](#credits)
+- [License](#license)
 
-## Fitur
+## Features
 
 | | |
 |---|---|
-| ![Menu sambutan di depan lift](docs/screenshots/welcome.jpg) | ![Karakter dengan jas, rompi, blazer, kemeja](docs/screenshots/characters.jpg) |
-| **Office tour & GPS.** Menu sambutan, tur 12 titik, dan pindah cepat ke ruangan atau rekan mana pun. | **Karakter bergaya kartun.** Jas + dasi, rompi, blazer, kemeja, beragam rambut, kacamata, hijab. Badan ber-skin sehingga siku dan lutut melengkung mulus. |
+| ![Welcome menu in front of the elevator](docs/screenshots/welcome.jpg) | ![Characters in suits, vests, blazers, shirts](docs/screenshots/characters.jpg) |
+| **Office tour & GPS.** A welcome menu, a 12-stop guided tour, and fast travel to any room or coworker. | **Cartoon-style characters.** Suits with ties, vests, blazers, shirts, many hairstyles, glasses, hijab. Skinned bodies, so elbows and knees bend smoothly. |
 
-![Bayar camilan dengan QRIS](docs/screenshots/qris.jpg)
+![Paying for a snack with a QR code](docs/screenshots/qris.jpg)
 
-- **Satu lantai kantor lengkap:** lobi lift, resepsionis, lorong, ruang IT dengan 5 meja panjang, ruang meeting 2/3/5, ruang laktasi, dan pantry. Semua ruangan bisa dimasuki.
-- **Data jadi benda:** 4 TV (KPI, build, monitoring, incident), whiteboard, tumpukan map approval di meja, dan api untuk incident SEV-1/2.
-- **Rekan kerja hidup:** duduk mengetik dengan irama berbeda-beda, menoleh sesekali, dan status di atas kepala dari data.
-- **Gerak natural:** langkah dihitung dari jarak tempuh (kaki tidak meluncur), badan condong di tikungan, dan berbalik dengan langkah kecil.
-- **Klik untuk jalan ala Dota:** klik kiri atau kanan di lantai, lengkap dengan penanda klik.
-- **Aksi beranimasi dengan IK lengan:** ambil gelas lalu isi air dan minum di galon; ambil camilan, keluarkan HP dari saku, lalu scan QRIS di pantry.
-- **Quest, HP ala GTA, siang/senja/malam, grafis High/Medium/Low otomatis.**
+- **A complete office floor:** elevator lobby, reception, hallways, an IT room with 5 long desks, meeting rooms 2/3/5, a lactation room, and a pantry. Every room can be entered.
+- **Data as objects:** 4 TVs (KPIs, builds, monitoring, incidents), whiteboards, a stack of folders for pending approvals, and fire on the floor for SEV-1/2 incidents.
+- **Living coworkers:** they type at their own rhythm, glance around now and then, and show data-driven status bubbles.
+- **Natural movement:** the walk cycle follows the distance traveled (no foot sliding), the body leans into turns, and turning in place uses small steps.
+- **Dota-style click to move:** left- or right-click the floor, with an animated click marker.
+- **Animated actions with arm IK:** take a cup, fill it, and drink at the water dispenser; pick a snack, take the phone out of your pocket, and scan the QR code in the pantry.
+- **Quests, a GTA-style phone, day/dusk/night, and automatic High/Medium/Low graphics.**
 
-## Mulai cepat
+## Quick start
 
 ```bash
 git clone https://github.com/anditorx/virtual-office-mini-player.git
@@ -55,17 +59,17 @@ cd virtual-office-mini-player
 python3 -m http.server 8080
 ```
 
-Buka http://localhost:8080. Selesai.
+Open http://localhost:8080. That's it.
 
-## Cara pakai
+## Ways to use it
 
-### 1. Buka langsung dari file
+### 1. Open the file directly
 
-Double-click `index.html`. Browser memuat three.js dan font dari CDN, jadi butuh internet. Semua fitur jalan, kecuali lagu JJ dari folder `assets/` (browser memblokir pemuatan file audio dari `file://`).
+Double-click `index.html`. The browser loads three.js and fonts from a CDN, so you need an internet connection. Everything works except a custom dance song from the `assets/` folder (browsers block loading audio files from `file://`).
 
-### 2. Server lokal
+### 2. Local server
 
-Pilih salah satu:
+Pick one:
 
 ```bash
 python3 -m http.server 8080      # Python 3
@@ -73,288 +77,328 @@ npx serve .                      # Node.js
 php -S localhost:8080            # PHP
 ```
 
-Atau pakai ekstensi **Live Server** di VS Code: klik kanan `index.html` → *Open with Live Server*.
+Or use the **Live Server** extension in VS Code: right-click `index.html` → *Open with Live Server*.
 
-### 3. Online gratis (hosting statis)
+### 3. Free online hosting (static)
 
-Isi folder ini sudah siap di-host apa adanya, tanpa perintah build.
+The folder can be hosted as is, with no build command.
 
-- **GitHub Pages:** di repo GitHub-mu buka *Settings → Pages → Build and deployment*, pilih *Deploy from a branch*, branch `main`, folder `/ (root)`, lalu *Save*. Dalam satu-dua menit game ada di `https://<username>.github.io/virtual-office-mini-player/`.
-- **Netlify Drop:** buka https://app.netlify.com/drop lalu seret folder proyek ke halaman itu.
-- **Vercel / Cloudflare Pages:** import repo, framework preset *Other*, build command dikosongkan, output directory `.` (root).
+- **GitHub Pages:** fork the repo, open *Settings → Pages → Build and deployment*, choose *Deploy from a branch*, branch `main`, folder `/ (root)`, then *Save*. After a minute or two the game is live at `https://<username>.github.io/virtual-office-mini-player/`.
+- **Netlify Drop:** go to https://app.netlify.com/drop and drag the project folder onto the page.
+- **Vercel / Cloudflare Pages:** import the repo, framework preset *Other*, leave the build command empty, output directory `.` (root).
 
-### 4. Tempel di web app yang sudah ada
+### 4. Embed it in an existing web app
 
-Salin seluruh folder (minimal `index.html` dan `src/`) ke folder file statis aplikasimu, misalnya `public/office/` di Next.js, Vite, atau Laravel. Game lalu terbuka di `/office/index.html`.
+Copy the whole folder (at least `index.html` and `src/`) into your app's static folder, for example `public/office/` in Next.js, Vite, or Laravel. The game is then served at `/office/index.html`.
 
-Untuk menampilkannya di dalam halaman lain:
+To show it inside another page:
 
 ```html
 <iframe src="/office/index.html" title="Virtual Office" allow="fullscreen"
         style="width:100%;height:80vh;border:0;border-radius:12px"></iframe>
 ```
 
-Klik sekali di dalam iframe supaya keyboard (WASD, E, Tab) masuk ke game.
+Click once inside the iframe so keyboard input (WASD, E, Tab) goes to the game.
 
-### 5. Jadikan kantormu sendiri
+### 5. Make it your office
 
-Ubah [`src/config.js`](src/config.js), simpan, lalu muat ulang browser. Detailnya ada di [Menyesuaikan](#menyesuaikan).
+Edit [`src/config.js`](src/config.js), save, and reload the browser. See [Customization](#customization).
 
-### 6. Sambungkan ke data asli
+### 6. Connect real data
 
-1. Buat endpoint dengan bentuk JSON sesuai [docs/API.md](docs/API.md). [`src/mock-data.js`](src/mock-data.js) adalah contoh respons lengkapnya.
-2. Di `src/config.js`, set `data.mode: 'api'` dan `data.baseUrl` (kosongkan kalau satu origin dengan game).
-3. Kalau ingin merge MR, trigger build, dan solve incident dari dalam game, set `data.allowWrites: true`.
+1. Build endpoints that return JSON in the shapes described in [docs/API.md](docs/API.md). [`src/mock-data.js`](src/mock-data.js) is a complete example of every response.
+2. In `src/config.js`, set `data.mode: 'api'` and `data.baseUrl` (leave it empty if the API is on the same origin as the game).
+3. To allow merging MRs, triggering builds, and solving incidents from inside the game, set `data.allowWrites: true`.
 
-Contoh backend minimal (Node.js + Express) yang menyajikan game dan satu route sekaligus, jadi tidak perlu urusan CORS:
+A minimal backend (Node.js + Express) that serves both the game and one route, so you don't have to deal with CORS:
 
 ```js
-// server.js — npm i express, lalu: node server.js
+// server.js — npm i express, then: node server.js
 import express from 'express'
 const app = express()
-app.use(express.static('.'))   // game di http://localhost:8080
+app.use(express.static('.'))   // game at http://localhost:8080
 app.get('/api/incidents', (req, res) => res.json([
-  { id: 'inc-1', incident_number: 'INC-0001', severity: 'SEV-2', title: 'API lambat', status: 'open', service: 'billing-api' },
+  { id: 'inc-1', incident_number: 'INC-0001', severity: 'SEV-2', title: 'Slow API', status: 'open', service: 'billing-api' },
 ]))
 app.listen(8080)
 ```
 
-Route yang belum kamu buat hanya ditandai error di **Lemari Perangkat IT** di dalam game; bagian lain tetap jalan.
+Routes you haven't built yet are simply marked as errors in the **IT equipment cabinet** ("Lemari Perangkat IT") inside the game; everything else keeps working.
 
-### 7. Pakai dengan AI
+### 7. Build with AI
 
-Lihat bagian berikut. Kamu bisa mengubah game ini cukup dengan menulis permintaan ke asisten AI.
+See the next section: you can change the game just by describing what you want to an AI assistant.
 
-## Pakai dengan AI (vibe coding)
+## Build with AI (vibe coding)
 
-Buka folder proyek di asisten AI yang bisa membaca dan mengubah file, misalnya Claude Code, Cursor, Windsurf, atau GitHub Copilot Chat (mode agent). Tempel **prompt pembuka** dulu, lalu salah satu prompt tugas di bawahnya. Ganti teks dalam `[KURUNG SIKU]` dengan milikmu.
+Use an AI assistant that can read and edit files, such as Claude Code, Cursor, Windsurf, or GitHub Copilot Chat (agent mode). Start with the **opening prompt**, then paste one of the task prompts. Replace anything in `[SQUARE BRACKETS]` with your own details. You can write to the assistant in any language.
 
-**Prompt pembuka** (tempel sekali di awal percakapan):
+### Start from zero (no copy on your computer yet)
 
 ```text
-Kamu bekerja di repo virtual-office-mini-player: kantor virtual 3D berbasis three.js tanpa build step.
-Baca README.md, src/config.js, dan docs/API.md dulu sebelum mengubah apa pun.
-Aturan proyek:
-1. Jangan menambah bundler, framework, atau dependency npm. Game harus tetap bisa dibuka dengan double-click index.html.
-2. src/config.js dan src/mock-data.js tetap script biasa (window.VO_CONFIG, window.VO_MOCK), bukan ES module.
-3. Bentuk data mengikuti docs/API.md. Kalau menambah route, tambahkan juga contohnya di src/mock-data.js dan dokumentasinya di docs/API.md.
-4. Semua nama orang dan perusahaan di repo harus fiktif.
-5. Ikuti gaya kode yang ada: komentar singkat berbahasa Indonesia, tanpa titik koma.
-6. Benda dekorasi statis ditambahkan langsung ke scene dengan helper cbox/cyl yang sudah ada, supaya ikut digabung pass performa.
-7. Setelah mengubah, jalankan python3 -m http.server 8080, buka game, dan pastikan console tidak ada error.
+Clone https://github.com/anditorx/virtual-office-mini-player into a new folder called [FOLDER NAME],
+start it with a local static server, and give me the URL to open in my browser.
+Then explain in plain language what this project is and which file I should edit to rename the
+company and the coworkers.
 ```
 
-<details>
-<summary><b>Jalankan dan jelaskan proyek ini</b></summary>
+### Opening prompt (paste once at the start of the conversation)
 
 ```text
-Jalankan game ini di server lokal dan beri tahu URL-nya. Lalu jelaskan singkat dalam bahasa sederhana:
-bagian mana di index.html yang membangun ruangan, karakter, data, dan panel, serta file mana yang
-sebaiknya saya ubah kalau ingin mengganti nama perusahaan dan rekan kerja.
+You are working on virtual-office-mini-player (https://github.com/anditorx/virtual-office-mini-player),
+a 3D virtual office built with three.js and no build step.
+If the project is not on this computer yet, clone it from that URL first.
+Read README.md, src/config.js, and docs/API.md before changing anything.
+Project rules:
+1. Do not add a bundler, framework, or npm dependency. The game must still open by double-clicking index.html.
+2. src/config.js and src/mock-data.js stay plain scripts (window.VO_CONFIG, window.VO_MOCK), not ES modules.
+3. Data shapes follow docs/API.md. If you add a route, also add an example to src/mock-data.js and document it in docs/API.md.
+4. Every person and company name in the repo must be fictional.
+5. Match the existing code style: short comments in Bahasa Indonesia, no semicolons.
+6. Add static decoration directly to the scene with the existing cbox/cyl helpers so it gets merged by the performance pass.
+7. After changing things, run python3 -m http.server 8080, open the game, and make sure the browser console has no errors.
+```
+
+### Ready-to-use prompts
+
+<details>
+<summary><b>Run the project and explain how it works</b></summary>
+
+```text
+Using https://github.com/anditorx/virtual-office-mini-player (clone it if needed), run the game on a
+local server and tell me the URL. Then briefly explain, in plain language, which parts of index.html
+build the rooms, the characters, the data, and the panels, and which file I should edit to change
+the company name and the coworkers.
 ```
 </details>
 
 <details>
-<summary><b>Ganti jadi kantor perusahaan saya</b></summary>
+<summary><b>Turn it into my company's office</b></summary>
 
 ```text
-Ubah src/config.js supaya kantor ini jadi milik [NAMA PERUSAHAAN]:
-- nama di papan resepsionis: [NAMA SINGKAT], nama resmi di dinding lift: [NAMA RESMI], label kecil: [3-5 HURUF]
-- warna logo: [KODE WARNA, mis. #e4572e]
-- nomor lantai: [ANGKA]
-- vision, mission, dan 4 nilai perusahaan: [TULIS NILAI-NILAINYA]
-Jangan ubah index.html kecuali benar-benar perlu. Setelah selesai, ambil screenshot lobi lift dan papan resepsionis.
+In virtual-office-mini-player (https://github.com/anditorx/virtual-office-mini-player), edit src/config.js
+so the office belongs to [COMPANY NAME]:
+- reception sign: [SHORT NAME], full name on the elevator wall: [LEGAL NAME], small label: [3-5 LETTERS]
+- logo color: [COLOR CODE, e.g. #e4572e]
+- floor number: [NUMBER]
+- vision, mission, and 4 company values: [WRITE THEM]
+Don't touch index.html unless it is really necessary. When you're done, take a screenshot of the
+elevator lobby and the reception sign.
 ```
 </details>
 
 <details>
-<summary><b>Ganti rekan kerja dengan tim saya</b></summary>
+<summary><b>Replace the coworkers with my team</b></summary>
 
 ```text
-Ganti daftar npcs di src/config.js dengan tim berikut. Pertahankan kursi (n), id, dan panel yang sudah ada
-untuk peran yang mirip; peran baru cukup jadi rekan biasa tanpa panel.
-Pilihkan outfit, hairStyle, warna baju, dan glasses yang beragam dan cocok dengan perannya.
-Tim saya:
-- [Nama] — [Peran]
-- [Nama] — [Peran]
+In virtual-office-mini-player (https://github.com/anditorx/virtual-office-mini-player), replace the npcs list
+in src/config.js with the team below. Keep the existing seat (n), id, and panel for similar roles;
+new roles can be regular coworkers without a panel. Pick varied outfit, hairStyle, clothing colors,
+and glasses that fit each role.
+My team:
+- [Name] — [Role]
+- [Name] — [Role]
 - ...
-Update juga dancers kalau nama penarinya berubah.
+Also update dancers if the dancers' names change.
 ```
 </details>
 
 <details>
-<summary><b>Pakai logo gambar sendiri</b></summary>
+<summary><b>Use my own logo image</b></summary>
 
 ```text
-Saya punya logo di assets/logo.png. Ubah drawLogo() di index.html supaya semua papan nama, poster,
-layar presentasi, dan kartu QRIS memakai gambar itu. Karena tekstur canvas digambar saat load, muat
-gambarnya dulu sebelum scene dibangun, dan pakai logo dummy yang ada sebagai cadangan kalau file
-tidak ditemukan. Tambahkan opsi company.logo di src/config.js dan jelaskan di README.
-Ingat: assets/ diabaikan git, jadi beri tahu saya kalau logonya perlu di-commit dengan cara lain.
+In virtual-office-mini-player (https://github.com/anditorx/virtual-office-mini-player), I have a logo at
+assets/logo.png. Change drawLogo() in index.html so every sign, poster, presentation screen, and QR card
+uses that image. Canvas textures are drawn at load time, so load the image before the scene is built,
+and fall back to the existing placeholder logo if the file is missing. Add a company.logo option to
+src/config.js and document it in the README.
+Note: assets/ is git-ignored, so tell me how to commit the logo if I need to.
 ```
 </details>
 
 <details>
-<summary><b>Sambungkan ke data asli (GitHub, Jira, Jenkins, dll.)</b></summary>
+<summary><b>Connect real data (GitHub, Jira, Jenkins, etc.)</b></summary>
 
 ```text
-Buatkan backend kecil di folder server/ yang menyediakan route sesuai docs/API.md dengan data asli dari
-[GitHub / GitLab / Jira / Jenkins / Asana / sumber lain].
-- Bahasa: [Node.js / Python FastAPI]
-- Token disimpan di file .env (jangan di-commit, tambahkan ke .gitignore) dan buat .env.example
-- Sajikan juga file game dari server yang sama supaya tidak perlu CORS
-- Route yang belum didukung sumber saya cukup mengembalikan 404
-Lalu set data.mode = 'api' di src/config.js dan tulis cara menjalankannya di README.
+For virtual-office-mini-player (https://github.com/anditorx/virtual-office-mini-player), create a small
+backend in a server/ folder that serves the routes in docs/API.md with real data from
+[GitHub / GitLab / Jira / Jenkins / Asana / other source].
+- Language: [Node.js / Python FastAPI]
+- Store tokens in a .env file (never commit it) and add a .env.example
+- Serve the game files from the same server so CORS isn't needed
+- Routes my source can't support should just return 404
+Then set data.mode = 'api' in src/config.js and add run instructions to the README.
 ```
 </details>
 
 <details>
-<summary><b>Tambah ruangan atau benda interaktif baru</b></summary>
+<summary><b>Add a new room or interactive object</b></summary>
 
 ```text
-Tambahkan [NAMA RUANGAN/BENDA, mis. "mesin kopi di pantry"] di [LOKASI].
-Saat pemain menekan E di dekatnya: [APA YANG TERJADI, mis. "muncul panel menu kopi dengan 4 pilihan"].
-Ikuti pola yang sudah ada: def() untuk objek interaktif, PANELS untuk isi panel, cbox/cyl untuk bentuk,
-dan block() supaya tidak bisa ditembus. Tambahkan juga ke daftar Tempat di menu Bantuan (H).
+In virtual-office-mini-player (https://github.com/anditorx/virtual-office-mini-player), add
+[ROOM/OBJECT NAME, e.g. "a coffee machine in the pantry"] at [LOCATION].
+When the player presses E near it: [WHAT HAPPENS, e.g. "a panel opens with a 4-item coffee menu"].
+Follow the existing patterns: def() for interactive objects, PANELS for panel content, cbox/cyl for
+shapes, and block() so it can't be walked through. Also add it to the "Tempat" (Places) tab of the in-game help (H).
 ```
 </details>
 
 <details>
-<summary><b>Tambah aksi beranimasi baru</b></summary>
+<summary><b>Add a new animated action</b></summary>
 
 ```text
-Tambahkan aksi beranimasi baru: [DESKRIPSI, mis. "di mesin fotokopi, karakter menaruh kertas, menekan
-tombol, menunggu, lalu mengambil hasilnya"]. Ikuti pola drinkAct() dan buyAct() di index.html:
-keyframe posisi tangan (IK), condong/jongkok, arah kepala, event untuk memunculkan barang dan suara.
-Pastikan Esc membatalkan aksi dan barang di tangan disembunyikan saat selesai.
+In virtual-office-mini-player (https://github.com/anditorx/virtual-office-mini-player), add a new animated
+action: [DESCRIPTION, e.g. "at the photocopier, the character places paper, presses a button, waits,
+then picks up the copies"]. Follow the drinkAct() and buyAct() pattern in index.html: keyframed hand
+positions (IK), lean/crouch, head direction, and events that show held items and play sounds.
+Make sure Esc cancels the action and held items are hidden when it ends.
 ```
 </details>
 
 <details>
-<summary><b>Online-kan di GitHub Pages</b></summary>
+<summary><b>Publish it on GitHub Pages</b></summary>
 
 ```text
-Bantu saya meng-online-kan game ini di GitHub Pages dari branch main (root).
-Cek dulu tidak ada path absolut yang rusak kalau situsnya ada di subfolder /virtual-office-mini-player/.
-Lalu tulis langkah yang harus saya klik di Settings → Pages, dan tambahkan link demo di bagian atas README.
+I forked https://github.com/anditorx/virtual-office-mini-player to my own GitHub account.
+Help me publish my fork on GitHub Pages from the main branch (root). First check that no absolute
+paths break when the site lives under /virtual-office-mini-player/. Then list exactly what I need
+to click in Settings → Pages, and add the demo link near the top of the README.
 ```
 </details>
 
 <details>
-<summary><b>Terjemahkan ke bahasa Inggris</b></summary>
+<summary><b>Translate the game to English</b></summary>
 
 ```text
-Tambahkan dukungan bahasa Inggris. Pindahkan semua teks yang terlihat pemain (HUD, panel, bantuan, tour,
-toast) ke satu kamus teks, tambahkan opsi lang: 'id' | 'en' di src/config.js, dan default tetap 'id'.
-Jangan ubah nama variabel atau komentar kode.
+In virtual-office-mini-player (https://github.com/anditorx/virtual-office-mini-player), add English support.
+Move every player-facing string (HUD, panels, help, tour, toasts) into a single dictionary, add a
+lang: 'id' | 'en' option to src/config.js, and keep 'id' as the default.
+Don't rename variables or change code comments.
 ```
 </details>
 
 <details>
-<summary><b>Ada error / layar hitam</b></summary>
+<summary><b>Fix an error or a black screen</b></summary>
 
 ```text
-Game saya [JELASKAN GEJALANYA, mis. "layar hitam setelah loading" / "karakter tidak muncul"].
-Jalankan di server lokal, buka console browser, cari error-nya, perbaiki akar masalahnya,
-lalu jelaskan apa penyebabnya dalam satu-dua kalimat.
+My copy of virtual-office-mini-player (https://github.com/anditorx/virtual-office-mini-player) has a problem:
+[DESCRIBE IT, e.g. "black screen after loading" / "characters don't show up"].
+Run it on a local server, open the browser console, find the error, fix the root cause,
+and explain the cause in one or two sentences.
 ```
 </details>
 
-Tips: minta AI **mengambil screenshot** atau menjelaskan cara mengecek hasilnya. Perubahan 3D lebih mudah dinilai dengan mata daripada dengan membaca kode.
+Tip: ask the AI to **take a screenshot** or tell you how to check the result. 3D changes are much easier to judge by eye than by reading code.
 
-## Kontrol
+If you build something cool with these prompts, share it in a [GitHub issue](https://github.com/anditorx/virtual-office-mini-player/issues) and give the repo a ⭐.
 
-| Tombol | Fungsi |
+## Controls
+
+| Key | Action |
 |---|---|
-| WASD / panah | Jalan (Shift = lari) |
-| Klik kiri / kanan di lantai | Jalan ke sana (gaya Dota). Klik benda = jalan lalu berinteraksi |
-| Drag · scroll · + − | Putar kamera · zoom |
-| E · F | Interaksi dengan benda terdekat / terdekat kedua |
-| Tab | HP: maps, pesan, quest, Ori |
-| Ctrl/⌘ + K | Pindah cepat ke benda mana pun |
-| V · G · T · L | Kamera follow/denah · grafis · siang/senja/malam · label |
-| O | Menu sambutan (office tour, pilih tujuan) |
-| J | JJ bareng rekan (dekati penari dulu) |
-| Esc | Tutup panel / batalkan rute atau aksi |
-| H | Bantuan lengkap di dalam game |
+| WASD / arrow keys | Walk (Shift = run) |
+| Left / right click on the floor | Walk there (Dota style). Click an object = walk to it and interact |
+| Drag · scroll · + − | Rotate camera · zoom |
+| E · F | Interact with the nearest / second-nearest object |
+| Tab | Phone: maps, messages, quests, Ori (AI helper) |
+| Ctrl/⌘ + K | Fast travel to any object |
+| V · G · T · L | Follow/overhead camera · graphics · day/dusk/night · labels |
+| O | Welcome menu (office tour, choose a destination) |
+| J | Dance with a coworker (stand near a dancer first) |
+| Esc | Close panel / cancel route or action |
+| H | Full in-game help |
 
-## Menyesuaikan
+## Customization
 
-Semua yang biasanya ingin diganti ada di [`src/config.js`](src/config.js):
+Everything you usually want to change is in [`src/config.js`](src/config.js):
 
-| Kunci | Isi |
+| Key | What it controls |
 |---|---|
-| `company` | `name` (papan resepsionis & rambu), `legal` (dinding lift), `short` (poster, TV, HP, QRIS), `color` (logo) |
-| `office.floor` | Nomor lantai di dinding lift dan teks sambutan |
-| `player` | `name` awal pemain dan `look` (tampilan karakter pemain) |
-| `values` | Maksimal 5 poster vision, mission, dan values di lorong |
-| `npcs` | Rekan kerja: `name`, `role`, `status`, kursi `n`, panel yang terbuka, dan tampilan |
-| `dancers` | Dua nama rekan yang bisa diajak JJ |
-| `data` | Mode data, lihat [Mode data](#mode-data) |
-| `links.grafana` | Tautan dashboard monitoring (opsional) |
-| `audio.jjSong` | Lagu JJ milikmu sendiri, lihat [assets/README.md](assets/README.md) |
+| `company` | `name` (reception sign & signposts), `legal` (elevator wall), `short` (posters, TVs, phone, QR card), `color` (logo) |
+| `office.floor` | Floor number on the elevator wall and in the welcome text |
+| `player` | The player's starting `name` and `look` (appearance) |
+| `values` | Up to 5 vision, mission, and values posters in the hallway |
+| `npcs` | Coworkers: `name`, `role`, `status`, seat `n`, the panel they open, and their appearance |
+| `dancers` | Names of the two coworkers who can dance with you |
+| `data` | Data mode, see [Data modes](#data-modes) |
+| `links.grafana` | Link to a monitoring dashboard (optional) |
+| `audio.jjSong` | Your own dance song, see [assets/README.md](assets/README.md) |
 
-**Opsi tampilan karakter** (berlaku untuk `npcs` dan `player.look`):
+**Character appearance options** (for `npcs` and `player.look`):
 
-| Opsi | Nilai |
+| Option | Values |
 |---|---|
-| `outfit` | `'shirt'` kemeja · `'suit'` jas tertutup · `'blazer'` blazer terbuka · `'vest'` rompi di atas kemeja |
+| `outfit` | `'shirt'` · `'suit'` (closed jacket) · `'blazer'` (open blazer) · `'vest'` (vest over a long-sleeve shirt) |
 | `hairStyle` | `'short'` · `'side'` · `'slick'` · `'bun'` · `'bob'` · `'cap'` · `'long'` |
-| warna | `shirt` (pakaian luar), `inner` (kemeja dalam), `tie` (dasi), `pants`, `hair`, `skin`, `eyes`, `cap` (topi), `belt` |
-| lain-lain | `glasses: true`, `hijab: '#warna'` |
+| colors | `shirt` (outer garment), `inner` (shirt underneath), `tie`, `pants`, `hair`, `skin`, `eyes`, `cap`, `belt` |
+| other | `glasses: true`, `hijab: '#color'` |
 
-Logo dibuat dari kode, bukan file gambar. Untuk memakai logo sendiri, ubah fungsi `drawLogo()` di `index.html`; semua papan nama dan poster memakai fungsi itu.
+The logo is drawn in code, not loaded from an image. To use your own, change `drawLogo()` in `index.html`; every sign and poster uses it.
 
-## Mode data
+## Data modes
 
-| `data.mode` | Sumber | Aksi tulis (merge, trigger build, solve incident) |
+| `data.mode` | Source | Write actions (merge, trigger build, solve incident) |
 |---|---|---|
-| `'mock'` (default) | [`src/mock-data.js`](src/mock-data.js), di memori browser | Selalu aktif, hanya mengubah data demo. Muat ulang = reset |
-| `'api'` | `data.baseUrl` + route di [docs/API.md](docs/API.md) | Mati, kecuali `data.allowWrites: true` |
+| `'mock'` (default) | [`src/mock-data.js`](src/mock-data.js), in browser memory | Always on, only change the demo data. Reload = reset |
+| `'api'` | `data.baseUrl` + routes in [docs/API.md](docs/API.md) | Off unless `data.allowWrites: true` |
 
-Data dummy memakai waktu relatif terhadap saat halaman dibuka, jadi grafik build 12 jam, task overdue, dan incident aktif selalu terlihat hidup. Nama tool di dalam game (GitLab, Jenkins, Asana, Grafana, n8n) hanya label untuk jenis data; mode demo tidak menghubungi layanan-layanan itu.
+Demo data uses times relative to when the page was opened, so the 12-hour build chart, overdue tasks, and active incidents always look alive. Tool names in the game (GitLab, Jenkins, Asana, Grafana, n8n) are only labels for kinds of data; demo mode never contacts those services.
 
-## Struktur proyek
+## Project structure
 
 ```
-index.html            game: scene three.js, karakter, animasi, HUD, panel, quest, tour, aksi
-src/config.js         perusahaan, lantai, nilai, rekan kerja, mode data
-src/mock-data.js      data dummy + aksi tulis demo (bentuk JSON = docs/API.md)
-docs/API.md           kontrak endpoint untuk mode 'api'
-docs/screenshots/     gambar untuk README
-assets/               file milikmu sendiri (lagu JJ, dll.); sengaja kosong & diabaikan git
-.github/              template issue & pull request
+index.html            the game: three.js scene, characters, animation, HUD, panels, quests, tour, actions
+src/config.js         company, floor, values, coworkers, data mode
+src/mock-data.js      demo data + demo write actions (JSON shapes = docs/API.md)
+docs/API.md           endpoint contract for 'api' mode
+docs/screenshots/     images used in this README
+assets/               your own files (dance song, etc.); intentionally empty and git-ignored
+.github/              issue & pull request templates
 ```
 
 ## FAQ
 
-**Layarnya hitam atau berhenti di loading.**
-Pastikan internet tersambung (three.js dimuat dari CDN) dan browser mendukung WebGL. Cek di https://get.webgl.org. Pesan error biasanya muncul di layar loading atau di console browser.
+**The screen is black or stuck on loading.**
+Make sure you're online (three.js is loaded from a CDN) and that your browser supports WebGL; check at https://get.webgl.org. Errors usually appear on the loading screen or in the browser console.
 
-**Berat di laptop saya.**
-Tekan G untuk menurunkan grafis ke Medium atau Low. Grafis juga turun otomatis kalau fps rendah.
+**It's slow on my laptop.**
+Press G to lower the graphics to Medium or Low. Graphics also drop automatically when the frame rate is low.
 
-**Bisa dipakai di HP?**
-Bisa dibuka, dengan tap untuk jalan dan drag untuk memutar kamera. Pengalaman terbaik tetap di laptop atau desktop dengan keyboard.
+**Does it work on phones?**
+It opens and you can tap to walk and drag to rotate the camera, but it's best on a laptop or desktop with a keyboard.
 
-**Apakah data saya dikirim ke mana-mana?**
-Tidak. Mode demo tidak memanggil jaringan sama sekali selain memuat three.js dan font. Nama pemain dan lagu JJ pilihanmu hanya disimpan di browsermu sendiri.
+**Is my data sent anywhere?**
+No. Demo mode makes no network calls besides loading three.js and the fonts. Your player name and any dance song you pick are stored only in your own browser.
 
-**Kenapa tidak ada lagu JJ bawaan?**
-Supaya repo bebas file berhak cipta. Beat bawaan dibuat langsung dengan Web Audio; lagu sendiri bisa dipilih dari menu JJ.
+**Why is there no built-in dance song?**
+To keep the repo free of copyrighted files. The default beat is generated with Web Audio, and you can pick your own song from the dance menu.
 
-## Berkontribusi
+## Contributing
 
-Kontribusi sangat diterima: perbaikan bug, ruangan baru, aksi baru, terjemahan, atau dokumentasi.
+Contributions are very welcome: bug fixes, new rooms, new actions, translations, or docs.
 
-1. Baca [CONTRIBUTING.md](CONTRIBUTING.md) dan [Code of Conduct](CODE_OF_CONDUCT.md).
-2. Buka [issue](../../issues) dulu untuk perubahan besar supaya bisa didiskusikan.
-3. Fork, buat branch, kirim pull request dengan screenshot sebelum/sesudah kalau mengubah tampilan.
+1. Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md).
+2. Open an [issue](https://github.com/anditorx/virtual-office-mini-player/issues) first for bigger changes so we can discuss them.
+3. Fork, create a branch, and send a pull request with before/after screenshots if you change anything visual.
 
-Menemukan celah keamanan? Jangan buka issue publik; ikuti [SECURITY.md](SECURITY.md). Riwayat perubahan ada di [CHANGELOG.md](CHANGELOG.md).
+Found a security issue? Please don't open a public issue; follow [SECURITY.md](SECURITY.md). The change history is in [CHANGELOG.md](CHANGELOG.md).
 
-## Lisensi
+## Credits
 
-[MIT](LICENSE). Bebas dipakai, diubah, dan dijual kembali, asalkan menyertakan teks lisensinya.
+Created by **Andi Rustianto** ([@anditorx](https://github.com/anditorx)).
 
-Pustaka pihak ketiga dimuat dari CDN dengan lisensinya masing-masing: [three.js](https://github.com/mrdoob/three.js) (MIT) dan font [Anton, Barlow, Barlow Condensed, JetBrains Mono](https://fonts.google.com) (SIL Open Font License).
+Built with [three.js](https://github.com/mrdoob/three.js) and the fonts Anton, Barlow, Barlow Condensed, and JetBrains Mono from [Google Fonts](https://fonts.google.com).
+
+### ⭐ Support the project
+
+If this project is useful or fun for you:
+
+- **[Star the repo](https://github.com/anditorx/virtual-office-mini-player)** so more people can find it
+- **[Follow @anditorx](https://github.com/anditorx)** on GitHub for updates and new projects
+- Share what you build with it, or open an issue with ideas
+
+## License
+
+[MIT](LICENSE). You're free to use, modify, and sell it, as long as you include the license text.
+
+Third-party libraries are loaded from a CDN under their own licenses: [three.js](https://github.com/mrdoob/three.js) (MIT) and the fonts above (SIL Open Font License).
